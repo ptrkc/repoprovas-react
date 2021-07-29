@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import HomePage from "./components/HomePage/HomePage";
+import { ResetCSS } from "./styles/ResetCSS";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <ResetCSS />
+            {/* <Header /> */}
+            <Switch>
+                <Route exact path="/">
+                    <HomePage />
+                </Route>
+                {/* <Route exact path="/professores">
+                    <ProfessorsPage />
+                </Route>
+                <Route exact path="/professores/:id">
+                    <ProfessorPage />
+                </Route>
+                <Route exact path="/disciplinas">
+                    <DisciplinesPage />
+                </Route>
+                <Route exact path="/disciplinas/:id">
+                    <DisciplinePage />
+                </Route>
+                <Route exact path="/enviar">
+                    <SendPage />
+                </Route>
+                <Route exact path="/visualizar/:id">
+                    <ViewPage />
+                </Route>
+                <Route path="*">
+                    <NotFound />
+                </Route> */}
+            </Switch>
+        </BrowserRouter>
+    );
 }
 
 export default App;
