@@ -14,7 +14,7 @@ export default function DisciplinesPage() {
             setDisciplines(res.data);
         });
     }
-
+    console.log(disciplines);
     return (
         <Container>
             {disciplines.map((d) => (

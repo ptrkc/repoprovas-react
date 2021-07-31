@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import ProfessorsPage from "./components/ProfessorsPage/ProfessorsPage";
+import ProfessorPage from "./components/ProfessorPage/ProfessorPage";
 import DisciplinesPage from "./components/DisciplinesPage/DisciplinesPage";
 import { ResetCSS } from "./styles/ResetCSS";
 
@@ -16,9 +17,9 @@ function App() {
                 <Route exact path="/professores">
                     <ProfessorsPage />
                 </Route>
-                {/* <Route exact path="/professores/:id">
+                <Route exact path="/professores/:id">
                     <ProfessorPage />
-                </Route> */}
+                </Route>
                 <Route exact path="/disciplinas">
                     <DisciplinesPage />
                 </Route>
