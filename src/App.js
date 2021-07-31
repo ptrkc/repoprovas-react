@@ -1,7 +1,9 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
 import HomePage from "./components/HomePage/HomePage";
 import ProfessorsPage from "./components/ProfessorsPage/ProfessorsPage";
 import ProfessorPage from "./components/ProfessorPage/ProfessorPage";
+import DisciplinePage from "./components/DisciplinePage/DisciplinePage";
 import DisciplinesPage from "./components/DisciplinesPage/DisciplinesPage";
 import { ResetCSS } from "./styles/ResetCSS";
 
@@ -9,7 +11,7 @@ function App() {
     return (
         <BrowserRouter>
             <ResetCSS />
-            {/* <Header /> */}
+            <Header />
             <Switch>
                 <Route exact path="/">
                     <HomePage />
@@ -23,9 +25,9 @@ function App() {
                 <Route exact path="/disciplinas">
                     <DisciplinesPage />
                 </Route>
-                {/* <Route exact path="/disciplinas/:id">
+                <Route exact path="/disciplinas/:id">
                     <DisciplinePage />
-                </Route> */}
+                </Route>
                 {/* <Route exact path="/enviar">
                     <SendPage />
                 </Route>

@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 
-export default function ProfessorsPage() {
+export default function DisciplinePage() {
     const [exams, setExams] = useState([]);
-    const [professor, setProfessor] = useState("");
+    const [discipline, setDiscipline] = useState("");
     const { id } = useParams();
     useEffect(() => {
         getExams();
@@ -13,21 +13,21 @@ export default function ProfessorsPage() {
     }, []);
     function getExams() {
         const req = axios.get(
-            `${process.env.REACT_APP_API_URL}/professors/${id}/exams`
+            `${process.env.REACT_APP_API_URL}/disciplines/${id}/exams`
         );
         req.then((res) => {
             setExams(res.data.exams);
-            setProfessor(res.data.professor);
+            setDiscipline(res.data.discipline);
             console.log(res.data);
         });
     }
 
     return (
         <Container>
-            <h1>{professor}</h1>
+            <h1>{discipline}</h1>
             {exams.map((e) => (
                 <Link to={e.url} key={e.id}>
-                    {e.year}.{e.semester} - {e.discipline.name}
+                    {e.year}.{e.semester} - {e.professor.name}
                 </Link>
             ))}
         </Container>

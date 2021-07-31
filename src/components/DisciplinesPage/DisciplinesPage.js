@@ -18,7 +18,7 @@ export default function DisciplinesPage() {
     return (
         <Container>
             {disciplines.map((d) => (
-                <Link to={`/disciplines/${d.id}`} key={d.id}>
+                <Link to={`/disciplinas/${d.id}`} key={d.id}>
                     {d.name}
                 </Link>
             ))}
