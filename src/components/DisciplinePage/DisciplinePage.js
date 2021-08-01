@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 export default function DisciplinePage() {
@@ -26,9 +26,9 @@ export default function DisciplinePage() {
         <Container>
             <h1>{discipline}</h1>
             {exams.map((e) => (
-                <Link to={e.url} key={e.id}>
+                <a href={e.url} key={e.id}>
                     {e.year}.{e.semester} - {e.professor.name}
-                </Link>
+                </a>
             ))}
         </Container>
     );

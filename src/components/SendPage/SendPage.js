@@ -12,7 +12,7 @@ export default function Header() {
     const [disciplineId, setDisciplineId] = useState();
     const [professorId, setProfessorId] = useState();
     const [semester, setSemester] = useState(1);
-    const [typeId, setTypeId] = useState("P1");
+    const [typeId, setTypeId] = useState(1);
     const [examURL, setExamURL] = useState("");
     const [year, setYear] = useState("2021");
     const types = [
