@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import CategoriesPages from "../styles/CategoriesPages";
 
 export default function ProfessorsPage() {
     const [professors, setProfessors] = useState([]);
@@ -16,27 +16,17 @@ export default function ProfessorsPage() {
     }
 
     return (
-        <Container>
+        <CategoriesPages>
             <h1>Professores:</h1>
-            {professors.map((p) => (
-                <Link to={`/professores/${p.id}`} key={p.id}>
-                    {p.name} ({p.exams})
-                </Link>
-            ))}
-        </Container>
+            <ul>
+                {professors.map((p) => (
+                    <li>
+                        <Link to={`/professores/${p.id}`} key={p.id}>
+                            {p.name} ({p.exams})
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+        </CategoriesPages>
     );
 }
-
-const Container = styled.div`
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    div {
-        margin: 10px;
-        a {
-            margin: 10px;
-        }
-    }
-`;

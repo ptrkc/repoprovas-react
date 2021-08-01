@@ -6,12 +6,15 @@ import ProfessorPage from "./components/ProfessorPage/ProfessorPage";
 import DisciplinePage from "./components/DisciplinePage/DisciplinePage";
 import DisciplinesPage from "./components/DisciplinesPage/DisciplinesPage";
 import SendPage from "./components/SendPage/SendPage";
-import { ResetCSS } from "./styles/ResetCSS";
+import ExamPage from "./components/ExamPage/ExamPage";
+import { ResetCSS } from "./GlobalStyles/ResetCSS";
+import { GlobalStyle } from "./GlobalStyles/GlobalStyle";
 
 function App() {
     return (
         <BrowserRouter>
             <ResetCSS />
+            <GlobalStyle />
             <Header />
             <Switch>
                 <Route exact path="/">
@@ -32,10 +35,10 @@ function App() {
                 <Route exact path="/enviar">
                     <SendPage />
                 </Route>
-                {/* <Route exact path="/visualizar/:id">
-                    <ViewPage />
+                <Route exact path="/prova/:id">
+                    <ExamPage />
                 </Route>
-                <Route path="*">
+                {/* <Route path="*">
                     <NotFound />
                 </Route> */}
             </Switch>

@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function HomePage() {
     return (
         <Home>
-            <h1>Filtrar provas por:</h1>
+            <h1>RepoProvas</h1>
             <div>
                 <Link to={"/disciplinas"}>Disciplinas</Link>
                 <Link to={"/professores"}>Professores</Link>
@@ -21,16 +21,25 @@ const Home = styled.div`
     flex-direction: column;
     h1 {
         margin: 10px;
-        font-size: 20px;
+        font-size: 40px;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #202020;
     }
     div {
         margin: 10px;
         a {
+            background-image: linear-gradient(#4e4e4e, #292929);
+            color: white;
+            padding: 10px 40px;
             font-size: 24px;
             margin: 10px;
             background-color: #94c6ff;
             border-radius: 10px;
-            padding: 10px;
+            transition: 0.2s;
+        }
+        a:hover {
+            filter: brightness(0.6);
         }
     }
 `;

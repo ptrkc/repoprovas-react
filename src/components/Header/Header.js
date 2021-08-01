@@ -5,26 +5,33 @@ export default function Header() {
     const history = useHistory();
     return (
         <Container>
-            <button onClick={history.goBack}>Voltar</button>
-            <Link to={"/"}>Home</Link>
-            <Link to={"/enviar"}>Enviar</Link>
+            <div onClick={history.goBack}>Voltar</div>
+            <Link to={"/"}>
+                <div>Home</div>
+            </Link>
+            <Link to={"/enviar"}>
+                <div>Enviar</div>
+            </Link>
         </Container>
     );
 }
 
 const Container = styled.div`
-    margin: 10px;
+    background-image: linear-gradient(#292929, #4e4e4e);
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
     div {
-        margin: 10px;
-        a {
-            margin: 10px;
-        }
+        cursor: pointer;
+        margin: 10px 20px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    & > * {
-        margin: 10px;
+    div:hover {
+        filter: brightness(0.6);
     }
 `;
