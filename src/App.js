@@ -5,6 +5,7 @@ import ProfessorsPage from "./components/ProfessorsPage/ProfessorsPage";
 import ProfessorPage from "./components/ProfessorPage/ProfessorPage";
 import DisciplinePage from "./components/DisciplinePage/DisciplinePage";
 import DisciplinesPage from "./components/DisciplinesPage/DisciplinesPage";
+import SendPage from "./components/SendPage/SendPage";
 import { ResetCSS } from "./styles/ResetCSS";
 
 function App() {
@@ -28,10 +29,10 @@ function App() {
                 <Route exact path="/disciplinas/:id">
                     <DisciplinePage />
                 </Route>
-                {/* <Route exact path="/enviar">
+                <Route exact path="/enviar">
                     <SendPage />
                 </Route>
-                <Route exact path="/visualizar/:id">
+                {/* <Route exact path="/visualizar/:id">
                     <ViewPage />
                 </Route>
                 <Route path="*">

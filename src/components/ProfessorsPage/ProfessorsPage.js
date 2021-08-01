@@ -17,9 +17,10 @@ export default function ProfessorsPage() {
 
     return (
         <Container>
-            {professors.map((prof) => (
-                <Link to={`/professores/${prof.id}`} key={prof.id}>
-                    {prof.name}
+            <h1>Professores:</h1>
+            {professors.map((p) => (
+                <Link to={`/professores/${p.id}`} key={p.id}>
+                    {p.name} ({p.exams})
                 </Link>
             ))}
         </Container>

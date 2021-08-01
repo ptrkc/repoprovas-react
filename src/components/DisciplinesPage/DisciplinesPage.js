@@ -17,9 +17,10 @@ export default function DisciplinesPage() {
     console.log(disciplines);
     return (
         <Container>
+            <h1>Disciplinas:</h1>
             {disciplines.map((d) => (
                 <Link to={`/disciplinas/${d.id}`} key={d.id}>
-                    {d.name}
+                    {d.name} ({d.exams})
                 </Link>
             ))}
         </Container>

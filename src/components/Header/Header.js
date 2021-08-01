@@ -17,10 +17,14 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 20px;
     div {
         margin: 10px;
         a {
             margin: 10px;
         }
+    }
+    & > * {
+        margin: 10px;
     }
 `;
