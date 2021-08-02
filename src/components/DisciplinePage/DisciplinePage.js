@@ -13,7 +13,7 @@ export default function DisciplinePage() {
     }, []);
     function getExams() {
         const req = axios.get(
-            `${process.env.REACT_APP_API_URL}/disciplines/${id}/exams`
+            `${process.env.REACT_APP_API_URL}/exams/discipline/${id}`
         );
         req.then((res) => {
             const resExams = { 1: [], 2: [], 3: [], 4: [], 5: [] };

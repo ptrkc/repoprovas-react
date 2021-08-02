@@ -5,19 +5,23 @@ import styled from "styled-components";
 
 export default function ProfessorsPage() {
     const [exam, setExam] = useState([]);
+    const [error, setError] = useState(false);
     const { id } = useParams();
 
     useEffect(() => {
         getExam();
         // eslint-disable-next-line
     }, []);
-
+    console.log("???");
     function getExam() {
-        const req = axios.get(`${process.env.REACT_APP_API_URL}/exams/${id}`);
-        req.then((res) => {
-            setExam(res.data);
-            console.log(res.data);
-        });
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/exams/${id}`)
+            .then((res) => {
+                setExam(res.data);
+            })
+            .catch((e) => {
+                setError(true);
+            });
     }
 
     return (
@@ -42,7 +46,9 @@ export default function ProfessorsPage() {
                     </object>
                 </>
             ) : (
-                <h1>Carregando...</h1>
+                <h1>
+                    {error ? <>Prova não encontrada</> : <>Carregando...</>}
+                </h1>
             )}
         </Container>
     );

@@ -14,7 +14,7 @@ export default function Header() {
     const [semester, setSemester] = useState(1);
     const [typeId, setTypeId] = useState(1);
     const [examURL, setExamURL] = useState("");
-    const [year, setYear] = useState("2021");
+    const [year, setYear] = useState(2021);
     const types = [
         { id: 1, name: "P1" },
         { id: 2, name: "P2" },
@@ -23,18 +23,7 @@ export default function Header() {
         { id: 5, name: "Outra" },
     ];
     const years = [
-        "2021",
-        "2020",
-        "2019",
-        "2018",
-        "2017",
-        "2016",
-        "2015",
-        "2014",
-        "2013",
-        "2012",
-        "2011",
-        "2010",
+        2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010,
     ];
     useEffect(() => {
         getDisciplines();
@@ -69,7 +58,7 @@ export default function Header() {
             return alert("Link do PDF obrigatório");
         }
         if (!isURL(examURL)) {
-            return alert("Insira uma link válido");
+            return alert("Insira um link válido");
         }
         const body = {
             disciplineId: disciplineId,
@@ -148,6 +137,11 @@ const SendForm = styled.form`
         border: 1px solid #303030;
         border-radius: 5px;
         font-size: 16px;
+        width: 100%;
+        max-width: 400px;
+    }
+    div > select {
+        width: initial;
     }
     button {
         background-image: linear-gradient(#4e4e4e, #292929);
@@ -162,5 +156,11 @@ const SendForm = styled.form`
     }
     button:hover {
         filter: brightness(0.6);
+    }
+    a {
+        font-weight: bold;
+    }
+    a:hover {
+        text-decoration: underline;
     }
 `;

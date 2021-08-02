@@ -38,8 +38,6 @@ export default function DisciplinesPage() {
             setDisciplines(resDisciplines);
         });
     }
-    console.log(disciplines);
-
     function renderDisciplinesBySemester(semester) {
         let name;
         if (!disciplines || !disciplines[semester].length) {

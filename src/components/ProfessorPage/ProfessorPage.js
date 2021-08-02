@@ -12,7 +12,7 @@ export default function ProfessorsPage() {
     }, []);
     function getExams() {
         const req = axios.get(
-            `${process.env.REACT_APP_API_URL}/professors/${id}/exams`
+            `${process.env.REACT_APP_API_URL}/exams/professor/${id}`
         );
         req.then((res) => {
             const resExams = { 1: [], 2: [], 3: [], 4: [], 5: [] };
@@ -21,7 +21,6 @@ export default function ProfessorsPage() {
             });
             setExams(resExams);
             setProfessor(res.data.professor);
-            console.log(res.data);
         });
     }
     function renderExamsByType(typeKey, typeName) {
