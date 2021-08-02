@@ -18,8 +18,9 @@ export default function Header() {
     const types = [
         { id: 1, name: "P1" },
         { id: 2, name: "P2" },
-        { id: 3, name: "2ch" },
-        { id: 4, name: "Outra" },
+        { id: 3, name: "P3" },
+        { id: 4, name: "2ª Chamada" },
+        { id: 5, name: "Outra" },
     ];
     const years = [
         "2021",
@@ -34,16 +35,6 @@ export default function Header() {
         "2012",
         "2011",
         "2010",
-        "2009",
-        "2008",
-        "2007",
-        "2006",
-        "2005",
-        "2004",
-        "2003",
-        "2002",
-        "2001",
-        "2000",
     ];
     useEffect(() => {
         getDisciplines();
@@ -71,11 +62,14 @@ export default function Header() {
             setDisciplineId(res.data[0].id);
         });
     }
-    console.log(disciplineId);
+
     function sendExam(e) {
         e.preventDefault();
         if (!examURL.trim()) {
             return alert("Link do PDF obrigatório");
+        }
+        if (!isURL(examURL)) {
+            return alert("Insira uma link válido");
         }
         const body = {
             disciplineId: disciplineId,
@@ -87,29 +81,35 @@ export default function Header() {
         };
         axios
             .post(`${process.env.REACT_APP_API_URL}/exams`, body)
-            .then(() => {
+            .then((response) => {
                 alert("Prova enviada!");
-                history.push("/");
+                history.push(`/prova/${response.data[0].id}`);
             })
-            .catch((e) => alert("Erro, tente novamente."));
+            .catch((e) => alert("Erro, tente novamente"));
+    }
+
+    function isURL(url) {
+        const re =
+            /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
+        return re.test(String(url).toLowerCase());
     }
 
     return (
         <SendForm onSubmit={sendExam}>
             <h1>Envie uma prova:</h1>
-            <h1>Selecione uma disciplina:</h1>
+            <p>Disciplina:</p>
             <SelectObject
                 value={disciplineId}
                 setValue={setDisciplineId}
                 options={disciplines}
             />
-            <h1>Selecione um professor:</h1>
+            <p>Professor(a):</p>
             <SelectObject
                 value={professorId}
                 setValue={setProfessorId}
                 options={professors}
             />
-            <h1>Selecione um ano e semestre:</h1>
+            <p>Ano e semestre:</p>
             <div>
                 <SelectArray value={year} setValue={setYear} options={years} />.
                 <SelectArray
@@ -118,12 +118,14 @@ export default function Header() {
                     options={[1, 2]}
                 />
             </div>
-            <h1>Selecione um tipo de prova:</h1>
+            <p>Tipo de prova:</p>
             <SelectObject value={typeId} setValue={setTypeId} options={types} />
-            <h1>Cole a URL do PDF da prova:</h1>
+            <p>Cole o link do PDF da prova:</p>
             <input
                 value={examURL}
                 onChange={(e) => setExamURL(e.target.value)}
+                placeholder="https://exemplo.com/arquivo.pdf"
+                required
             />
             <button>Enviar!</button>
         </SendForm>
@@ -132,8 +134,33 @@ export default function Header() {
 
 const SendForm = styled.form`
     margin: 10px;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    & > * {
+        margin: 5px;
+    }
+    select,
+    input {
+        background-color: white;
+        border: 1px solid #303030;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    button {
+        background-image: linear-gradient(#4e4e4e, #292929);
+        color: white;
+        padding: 10px 40px;
+        font-size: 24px;
+        margin: 10px;
+        width: 200px;
+        border-radius: 10px;
+        transition: 0.2s;
+        border: none;
+    }
+    button:hover {
+        filter: brightness(0.6);
+    }
 `;

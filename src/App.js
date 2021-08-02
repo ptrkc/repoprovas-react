@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
 import Header from "./components/Header/Header";
 import HomePage from "./components/HomePage/HomePage";
 import ProfessorsPage from "./components/ProfessorsPage/ProfessorsPage";
@@ -11,6 +11,11 @@ import { ResetCSS } from "./GlobalStyles/ResetCSS";
 import { GlobalStyle } from "./GlobalStyles/GlobalStyle";
 
 function App() {
+    function GoHome() {
+        const history = useHistory();
+        history.push("/");
+        return null;
+    }
     return (
         <BrowserRouter>
             <ResetCSS />
@@ -21,15 +26,19 @@ function App() {
                     <HomePage />
                 </Route>
                 <Route exact path="/professores">
+                    <HomePage />
                     <ProfessorsPage />
                 </Route>
                 <Route exact path="/professores/:id">
+                    <HomePage />
                     <ProfessorPage />
                 </Route>
                 <Route exact path="/disciplinas">
+                    <HomePage />
                     <DisciplinesPage />
                 </Route>
                 <Route exact path="/disciplinas/:id">
+                    <HomePage />
                     <DisciplinePage />
                 </Route>
                 <Route exact path="/enviar">
@@ -38,9 +47,9 @@ function App() {
                 <Route exact path="/prova/:id">
                     <ExamPage />
                 </Route>
-                {/* <Route path="*">
-                    <NotFound />
-                </Route> */}
+                <Route path="*">
+                    <GoHome />
+                </Route>
             </Switch>
         </BrowserRouter>
     );

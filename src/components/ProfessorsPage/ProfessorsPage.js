@@ -20,9 +20,9 @@ export default function ProfessorsPage() {
             <h1>Professores:</h1>
             <ul>
                 {professors.map((p) => (
-                    <li>
-                        <Link to={`/professores/${p.id}`} key={p.id}>
-                            {p.name} ({p.exams})
+                    <li key={p.id}>
+                        <Link to={`/professores/${p.id}`}>
+                            ({p.exams}) {p.name}
                         </Link>
                     </li>
                 ))}

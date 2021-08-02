@@ -7,12 +7,17 @@ const CategoriesPages = styled.div`
     align-items: center;
     flex-direction: column;
     font-size: 18px;
-    h1 {
-        font-size: 25px;
-        font-weight: bold;
+    h1:first-of-type {
+        margin-bottom: 20px;
     }
     li {
         margin: 10px;
+        a {
+            color: #303030;
+        }
+    }
+    li:hover {
+        text-decoration: underline;
     }
 `;
 
