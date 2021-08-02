@@ -63,7 +63,6 @@ export default function DisciplinesPage() {
     return (
         <CategoriesPages>
             <h1>Disciplinas:</h1>
-            {renderDisciplinesBySemester(0)}
             {renderDisciplinesBySemester(1)}
             {renderDisciplinesBySemester(2)}
             {renderDisciplinesBySemester(3)}
@@ -72,6 +71,7 @@ export default function DisciplinesPage() {
             {renderDisciplinesBySemester(6)}
             {renderDisciplinesBySemester(7)}
             {renderDisciplinesBySemester(8)}
+            {renderDisciplinesBySemester(0)}
         </CategoriesPages>
     );
 }

@@ -12,7 +12,7 @@ export default function ProfessorsPage() {
         getExam();
         // eslint-disable-next-line
     }, []);
-    console.log("???");
+
     function getExam() {
         axios
             .get(`${process.env.REACT_APP_API_URL}/exams/${id}`)
